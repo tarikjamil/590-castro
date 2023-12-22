@@ -204,7 +204,7 @@ document.querySelectorAll(".is--testimonial").forEach((testimonial) => {
       scrollTrigger: {
         trigger: testimonial,
         start: "top bottom -=100", // start animation when the top of the testimonial is at the center of the viewport
-        end: "bottom top += 100", // end animation when the bottom of the testimonial is at the center
+        end: "bottom center", // end animation when the bottom of the testimonial is at the center
         scrub: true, // smooth scrubbing effect, adjust as needed
         markers: true, // for debugging, can be removed later
       },
