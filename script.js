@@ -163,3 +163,40 @@ $(".switch--parent").on("click", function () {
   $(".height").toggleClass("is--active");
   $(".plan-image.is--2").toggleClass("is--active");
 });
+
+//------------ text move from left to right ------------ //
+
+// Select all elements with the 'animation:textleft' attribute
+document.querySelectorAll('[animation="textleft"]').forEach((element) => {
+  gsap.fromTo(
+    element,
+    { x: "5em" }, // starting position
+    {
+      x: "-5em", // ending position
+      scrollTrigger: {
+        trigger: element,
+        start: "top top", // start animation when the top of the element hits the top of the viewport
+        end: "bottom top", // end animation when the bottom of the element hits the top of the viewport
+        scrub: true, // smooth scrubbing, consider adjusting or removing for instant changes
+        markers: true, // for debugging, remove when done
+      },
+    }
+  );
+});
+
+document.querySelectorAll('[animation="textright"]').forEach((element) => {
+  gsap.fromTo(
+    element,
+    { x: "-5em" }, // starting position
+    {
+      x: "5em", // ending position
+      scrollTrigger: {
+        trigger: element,
+        start: "top top", // start animation when the top of the element hits the top of the viewport
+        end: "bottom top", // end animation when the bottom of the element hits the top of the viewport
+        scrub: true, // smooth scrubbing, consider adjusting or removing for instant changes
+        markers: true, // for debugging, remove when done
+      },
+    }
+  );
+});
