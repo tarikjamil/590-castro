@@ -166,3 +166,10 @@ gsap.to(".sticky", {
   },
   // additional animation properties if needed
 });
+
+//------------ map ------------ //
+
+$(".switch--parent").on("click", function () {
+  $(this).find(".switch--element").toggleClass("is--active");
+  $(".height").toggleClass("is--active");
+});
