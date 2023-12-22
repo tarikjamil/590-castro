@@ -158,7 +158,8 @@ gsap.to(".is--sticky", {
     start: "top top", // when the top of the trigger hits the top of the viewport
     end: "bottom top", // end after scrolling the height of the element
     pin: true, // enables pinning
-    pinSpacing: false, // optional, removes the gap that pinning might create
+    pinSpacing: false,
+    markers: true, // optional, removes the gap that pinning might create
   },
   // any additional animation properties
 });
