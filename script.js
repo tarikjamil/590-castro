@@ -225,3 +225,38 @@ document.querySelectorAll(".is--testimonial").forEach((testimonial) => {
     }
   );
 });
+
+//------------ text move from left to right ------------ //
+document.querySelectorAll(".timber-row.is--1").forEach((element) => {
+  gsap.fromTo(
+    element,
+    { x: "0em" }, // starting position
+    {
+      x: "-2em", // ending position
+      scrollTrigger: {
+        trigger: element,
+        start: "top bottom", // start animation when the top of the element hits the top of the viewport
+        end: "bottom top", // end animation when the bottom of the element hits the top of the viewport
+        scrub: true, // smooth scrubbing, consider adjusting or removing for instant changes
+        markers: false, // for debugging, remove when done
+      },
+    }
+  );
+});
+
+document.querySelectorAll(".timber-row.is--2").forEach((element) => {
+  gsap.fromTo(
+    element,
+    { x: "0em" }, // starting position
+    {
+      x: "2em", // ending position
+      scrollTrigger: {
+        trigger: element,
+        start: "top bottom", // start animation when the top of the element hits the top of the viewport
+        end: "bottom top", // end animation when the bottom of the element hits the top of the viewport
+        scrub: true, // smooth scrubbing, consider adjusting or removing for instant changes
+        markers: false, // for debugging, remove when done
+      },
+    }
+  );
+});
