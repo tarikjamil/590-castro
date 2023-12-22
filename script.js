@@ -170,9 +170,9 @@ $(".switch--parent").on("click", function () {
 document.querySelectorAll('[animation="textleft"]').forEach((element) => {
   gsap.fromTo(
     element,
-    { x: "5em" }, // starting position
+    { x: "1em" }, // starting position
     {
-      x: "-5em", // ending position
+      x: "-1em", // ending position
       scrollTrigger: {
         trigger: element,
         start: "top bottom", // start animation when the top of the element hits the top of the viewport
@@ -187,9 +187,9 @@ document.querySelectorAll('[animation="textleft"]').forEach((element) => {
 document.querySelectorAll('[animation="textright"]').forEach((element) => {
   gsap.fromTo(
     element,
-    { x: "-5em" }, // starting position
+    { x: "-1em" }, // starting position
     {
-      x: "5em", // ending position
+      x: "1em", // ending position
       scrollTrigger: {
         trigger: element,
         start: "top bottom", // start animation when the top of the element hits the top of the viewport
