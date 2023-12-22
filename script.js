@@ -197,7 +197,7 @@ document.querySelectorAll(".is--testimonial").forEach((testimonial) => {
 
   gsap.fromTo(
     chars,
-    { color: "transparent" },
+    { color: "var(--white)" },
     {
       color: "var(--gold)", // assuming you have defined this variable in your CSS
       stagger: 0.05, // adjust the stagger timing as needed
