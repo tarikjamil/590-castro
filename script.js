@@ -152,7 +152,7 @@ gsap.utils.toArray("[animation=split-fade]").forEach((container) => {
   });
 });
 
-gsap.to(".is--sticky", {
+gsap.to(".sticky", {
   scrollTrigger: {
     trigger: ".footprint-container",
     start: "top top", // when the top of the container reaches the top of the viewport
