@@ -191,22 +191,23 @@ document.querySelectorAll('[animation="textright"]').forEach((element) => {
 });
 
 //------------ testimonial ------------ //
-function animateTestimonials() {
-  document.querySelectorAll(".is--testimonial .char").forEach((line) => {
-    gsap.fromTo(
-      line,
-      { color: "transparent" },
-      {
-        color: "var(--gold)", // replace with your color variable
-        scrollTrigger: {
-          trigger: line,
-          start: "top center", // start when the top of the line is at the center of the viewport
-          end: "bottom center",
-          scrub: true, // smooth scrubbing, adjust as needed
-          toggleActions: "play none none none", // play animation on entering the viewport
-        },
-        stagger: 0.1, // adjust stagger timing as needed
-      }
-    );
-  });
-}
+
+document.querySelectorAll(".is--testimonial").forEach((testimonial) => {
+  const chars = testimonial.querySelectorAll(".char"); // select all .char elements within .is--testimonial
+
+  gsap.fromTo(
+    chars,
+    { color: "transparent" },
+    {
+      color: "var(--gold)", // assuming you have defined this variable in your CSS
+      stagger: 0.05, // adjust the stagger timing as needed
+      scrollTrigger: {
+        trigger: testimonial,
+        start: "top center", // start animation when the top of the testimonial is at the center of the viewport
+        end: "bottom center", // end animation when the bottom of the testimonial is at the center
+        scrub: true, // smooth scrubbing effect, adjust as needed
+        markers: true, // for debugging, can be removed later
+      },
+    }
+  );
+});
