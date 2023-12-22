@@ -7,7 +7,7 @@
 }
 
 .rotating--icon {
-  animation: rotation 20s infinite linear;
+  animation: rotation 30s infinite linear;
 }
 
 @keyframes rotation {
