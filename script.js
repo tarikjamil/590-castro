@@ -7,6 +7,9 @@ function runSplit() {
     types: "lines",
     lineClass: "animation-split-fade",
   });
+  texttestimonial = new SplitType(".is--testimonial", {
+    types: "lines",
+  });
 
   // Wrap each line in a div with class 'overflow-hidden'
   $(".loading-animation-split").each(function () {
@@ -26,6 +29,7 @@ window.addEventListener("resize", function () {
     windowWidth = $(window).innerWidth();
     text.revert();
     textfade.revert();
+    texttestimonial.revert();
     runSplit();
   }
 });
@@ -178,7 +182,7 @@ document.querySelectorAll('[animation="textleft"]').forEach((element) => {
         start: "top bottom", // start animation when the top of the element hits the top of the viewport
         end: "bottom top", // end animation when the bottom of the element hits the top of the viewport
         scrub: true, // smooth scrubbing, consider adjusting or removing for instant changes
-        markers: true, // for debugging, remove when done
+        markers: false, // for debugging, remove when done
       },
     }
   );
@@ -195,7 +199,7 @@ document.querySelectorAll('[animation="textright"]').forEach((element) => {
         start: "top bottom", // start animation when the top of the element hits the top of the viewport
         end: "bottom top", // end animation when the bottom of the element hits the top of the viewport
         scrub: true, // smooth scrubbing, consider adjusting or removing for instant changes
-        markers: true, // for debugging, remove when done
+        markers: false, // for debugging, remove when done
       },
     }
   );
