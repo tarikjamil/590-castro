@@ -96,17 +96,6 @@ function pageLoad() {
   ); // <-- position parameter set to the label
 
   // Add the 'loading-reverse' animation and set its position to the label
-  tl.from(
-    "[animation=loading-reverse]",
-    {
-      y: "-20rem",
-      opacity: "0",
-      stagger: { each: 0.1, from: "start" },
-      ease: "smooth",
-      duration: 1,
-    },
-    "loadingAnimationsStart"
-  ); // <-- position parameter set to the label
 }
 
 pageLoad();
@@ -172,4 +161,5 @@ gsap.to(".sticky", {
 $(".switch--parent").on("click", function () {
   $(this).find(".switch--element").toggleClass("is--active");
   $(".height").toggleClass("is--active");
+  $(".plan-image.is--2").toggleClass("is--active");
 });

@@ -18,3 +18,20 @@
     transform: rotate(360deg);
   }
 }
+
+.is--scrolling {
+  white-space: nowrap;
+  will-change: transform;
+  animation-name: is--scrolling;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes is--scrolling {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-1 * var(--scroll-width)));
+  }
+}
