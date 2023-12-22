@@ -155,6 +155,7 @@ gsap.utils.toArray("[animation=split-fade]").forEach((container) => {
 gsap.to(".is--sticky", {
   scrollTrigger: {
     trigger: ".footprint-container",
+    target: ".is--sticky",
     start: "top top", // when the top of the trigger hits the top of the viewport
     end: "bottom top", // end after scrolling the height of the element
     pin: true, // enables pinning
