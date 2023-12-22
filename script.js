@@ -232,7 +232,7 @@ document.querySelectorAll(".timber-row.is--1").forEach((element) => {
     element,
     { x: "0em" }, // starting position
     {
-      x: "-2em", // ending position
+      x: "-3em", // ending position
       scrollTrigger: {
         trigger: element,
         start: "top bottom", // start animation when the top of the element hits the top of the viewport
@@ -249,7 +249,7 @@ document.querySelectorAll(".timber-row.is--2").forEach((element) => {
     element,
     { x: "0em" }, // starting position
     {
-      x: "2em", // ending position
+      x: "3em", // ending position
       scrollTrigger: {
         trigger: element,
         start: "top bottom", // start animation when the top of the element hits the top of the viewport
