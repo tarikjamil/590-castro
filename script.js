@@ -145,21 +145,6 @@ gsap.utils.toArray("[animation=split-fade]").forEach((container) => {
   });
 });
 
-gsap.to(".sticky", {
-  scrollTrigger: {
-    trigger: ".footprint-container",
-    start: "top top", // when the top of the container reaches the top of the viewport
-    end: () => {
-      const footprintContainer = document.querySelector(".footprint-container");
-      return `+=${footprintContainer.offsetHeight - window.innerHeight}`;
-    },
-    pin: true,
-    pinSpacing: false,
-    markers: true, // for debugging
-  },
-  // additional animation properties if needed
-});
-
 //------------ map ------------ //
 
 $(".switch--parent").on("click", function () {
