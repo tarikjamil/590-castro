@@ -220,7 +220,7 @@ document.querySelectorAll(".is--testimonial").forEach((testimonial) => {
         start: "top bottom -=100", // start animation when the top of the testimonial is at the center of the viewport
         end: "bottom center", // end animation when the bottom of the testimonial is at the center
         scrub: true, // smooth scrubbing effect, adjust as needed
-        markers: true, // for debugging, can be removed later
+        markers: false, // for debugging, can be removed later
       },
     }
   );
