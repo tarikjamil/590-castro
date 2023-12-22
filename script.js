@@ -192,7 +192,7 @@ document.querySelectorAll('[animation="textright"]').forEach((element) => {
 
 //------------ testimonial ------------ //
 function animateTestimonials() {
-  document.querySelectorAll(".is--testimonial .chars").forEach((line) => {
+  document.querySelectorAll(".is--testimonial .char").forEach((line) => {
     gsap.fromTo(
       line,
       { color: "transparent" },
