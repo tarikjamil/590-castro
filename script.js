@@ -8,7 +8,7 @@ function runSplit() {
     lineClass: "animation-split-fade",
   });
   texttestimonial = new SplitType(".is--testimonial", {
-    types: "lines",
+    types: "chars",
   });
 
   // Wrap each line in a div with class 'overflow-hidden'
@@ -204,3 +204,24 @@ document.querySelectorAll('[animation="textright"]').forEach((element) => {
     }
   );
 });
+
+//------------ testimonial ------------ //
+function animateTestimonials() {
+  document.querySelectorAll(".is--testimonial .chars").forEach((line) => {
+    gsap.fromTo(
+      line,
+      { color: "transparent" },
+      {
+        color: "var(--gold)", // replace with your color variable
+        scrollTrigger: {
+          trigger: line,
+          start: "top center", // start when the top of the line is at the center of the viewport
+          end: "bottom center",
+          scrub: true, // smooth scrubbing, adjust as needed
+          toggleActions: "play none none none", // play animation on entering the viewport
+        },
+        stagger: 0.1, // adjust stagger timing as needed
+      }
+    );
+  });
+}
