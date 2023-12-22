@@ -5,3 +5,7 @@
 .overflow-hidden {
   overflow: hidden;
 }
+
+.rotating--icon {
+  animation: rotating 5s linear infinite;
+}
