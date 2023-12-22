@@ -81,9 +81,9 @@ function pageLoad() {
     {
       y: "100%",
       opacity: "0",
-      stagger: { each: 0.1, from: "start" },
+      stagger: { each: 0.2, from: "start" },
       ease: "smooth",
-      duration: 0.6,
+      duration: 1,
     },
     "loadingAnimationsStart"
   );
