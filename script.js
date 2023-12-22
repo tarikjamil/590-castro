@@ -227,36 +227,41 @@ document.querySelectorAll(".is--testimonial").forEach((testimonial) => {
 });
 
 //------------ text move from left to right ------------ //
-document.querySelectorAll(".timber-row.is--1").forEach((element) => {
-  gsap.fromTo(
-    element,
-    { x: "0em" }, // starting position
-    {
-      x: "-6em", // ending position
-      scrollTrigger: {
-        trigger: element,
-        start: "top bottom", // start animation when the top of the element hits the top of the viewport
-        end: "bottom top", // end animation when the bottom of the element hits the top of the viewport
-        scrub: true, // smooth scrubbing, consider adjusting or removing for instant changes
-        markers: false, // for debugging, remove when done
-      },
-    }
-  );
-});
+// Check if the screen width is greater than 992px
+if (window.innerWidth > 992) {
+  // Apply the animation to elements with the class .timber-row.is--1
+  document.querySelectorAll(".timber-row.is--1").forEach((element) => {
+    gsap.fromTo(
+      element,
+      { x: "0em" },
+      {
+        x: "-6em",
+        scrollTrigger: {
+          trigger: element,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+          markers: false,
+        },
+      }
+    );
+  });
 
-document.querySelectorAll(".timber-row.is--2").forEach((element) => {
-  gsap.fromTo(
-    element,
-    { x: "0em" }, // starting position
-    {
-      x: "6em", // ending position
-      scrollTrigger: {
-        trigger: element,
-        start: "top bottom", // start animation when the top of the element hits the top of the viewport
-        end: "bottom top", // end animation when the bottom of the element hits the top of the viewport
-        scrub: true, // smooth scrubbing, consider adjusting or removing for instant changes
-        markers: false, // for debugging, remove when done
-      },
-    }
-  );
-});
+  // Apply the animation to elements with the class .timber-row.is--2
+  document.querySelectorAll(".timber-row.is--2").forEach((element) => {
+    gsap.fromTo(
+      element,
+      { x: "0em" },
+      {
+        x: "6em",
+        scrollTrigger: {
+          trigger: element,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+          markers: false,
+        },
+      }
+    );
+  });
+}
