@@ -8,7 +8,7 @@ function runSplit() {
     lineClass: "animation-split-fade",
   });
   texttestimonial = new SplitType(".is--testimonial", {
-    types: "chars",
+    types: "lines,chars",
   });
 
   // Wrap each line in a div with class 'overflow-hidden'
