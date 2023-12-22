@@ -19,6 +19,17 @@
   }
 }
 
+.navbar--bg {
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.38, 0.005, 0.215, 1);
+  opacity: 0;
+}
+
+.navbar--bg.is--scrolled {
+  opacity: 1;
+}
+
 .is--scrolling {
   white-space: nowrap;
   will-change: transform;

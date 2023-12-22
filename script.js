@@ -145,6 +145,20 @@ gsap.utils.toArray("[animation=split-fade]").forEach((container) => {
   });
 });
 
+//------------ scroll navbar ------------ //
+
+$(document).ready(function () {
+  var scrollTop = 0;
+  $(window).scroll(function () {
+    scrollTop = $(window).scrollTop();
+    if (scrollTop >= 50) {
+      $(".navbar--bg").addClass("is--scrolled");
+    } else if (scrollTop < 50) {
+      $(".navbar--bg").removeClass("is--scrolled");
+    }
+  });
+});
+
 //------------ map ------------ //
 
 $(".switch--parent").on("click", function () {
