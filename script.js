@@ -262,3 +262,8 @@ if (window.innerWidth > 992) {
     );
   });
 }
+
+//------------ navbar ------------ //
+$(".menu--bg").on("click", function () {
+  $(".menu--link").click();
+});
