@@ -268,18 +268,28 @@ $(".menu--bg").on("click", function () {
   $(".menu--link").click();
 });
 
+// Initialize GSAP's SmoothScroller (Replace '.your-scroll-container' with your actual container)
+let scroller = ScrollTrigger.scrollerProxy(".your-scroll-container", {
+  // Your scroll container setup here
+});
+
 document.querySelectorAll(".menu--link").forEach((item) => {
   item.addEventListener("click", function () {
-    // Toggle class to know if the menu is open or not
     const isOpen = document.body.classList.toggle("menu-open");
 
     if (isOpen) {
-      // Save the current scroll position and apply a negative top margin
+      // Disable GSAP SmoothScroller
+      scroller.kill();
+
+      // Save the current scroll position
       const scrollY = window.scrollY;
       document.body.style.top = `-${scrollY}px`;
       document.body.classList.add("no-scroll");
     } else {
-      // Remove the no-scroll class and reset the scroll position
+      // Re-enable GSAP SmoothScroller
+      scroller.revert();
+
+      // Restore the scroll position
       const scrollY = document.body.style.top;
       document.body.style.top = "";
       window.scrollTo(0, parseInt(scrollY || "0") * -1);
