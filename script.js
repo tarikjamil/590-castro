@@ -164,7 +164,7 @@ $(document).ready(function () {
 $(".switch--parent").on("click", function () {
   $(this).find(".switch--element").toggleClass("is--active");
   $(".height").toggleClass("is--active");
-  $(".plan-image.is--2").toggleClass("is--active");
+  $(".plan-image").toggleClass("is--active");
 });
 
 //------------ text move from left to right ------------ //
