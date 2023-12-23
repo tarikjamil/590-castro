@@ -46,3 +46,18 @@
     transform: translateX(calc(-1 * var(--scroll-width)));
   }
 }
+
+.menu--parent,
+.menu--bg {
+  display: none;
+}
+
+.menu--icon-close {
+  opacity: 0;
+  transform: translateX(20rem);
+}
+
+.menu--icon {
+  opacity: 1;
+  transform: translateX(0rem);
+}

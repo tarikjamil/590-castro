@@ -267,3 +267,39 @@ if (window.innerWidth > 992) {
 $(".menu--bg").on("click", function () {
   $(".menu--link").click();
 });
+
+document.querySelectorAll(".menu--link").forEach((item) => {
+  item.addEventListener("click", function () {
+    // Toggle class to know if the menu is open or not
+    document.body.classList.toggle("menu-open");
+
+    let isOpen = document.body.classList.contains("menu-open");
+
+    // Handle display property
+    gsap.set([".menu--parent", ".menu--bg"], {
+      display: isOpen ? "flex" : "none",
+    });
+
+    // Animate menu parent height
+    gsap.to(".menu--parent", {
+      maxHeight: isOpen ? "1000px" : "0px", // Adjust maxHeight to a large enough value
+      ease: "smooth",
+      duration: 0.5,
+    });
+
+    // Animate menu icons
+    gsap.to(".menu--icon-close", {
+      opacity: isOpen ? 1 : 0,
+      x: isOpen ? "0rem" : "20rem",
+      ease: "smooth",
+      duration: 0.5,
+    });
+
+    gsap.to(".menu--icon", {
+      opacity: isOpen ? 0 : 1,
+      x: isOpen ? "20rem" : "0rem",
+      ease: "smooth",
+      duration: 0.5,
+    });
+  });
+});
