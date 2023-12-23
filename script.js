@@ -272,56 +272,31 @@ document.querySelectorAll(".menu--link").forEach((item) => {
   item.addEventListener("click", function () {
     const isOpen = document.body.classList.toggle("menu-open");
 
-    if (isOpen) {
-      // Disable scrolling on the scroll container
-      gsap.set(".your-scroll-container", {
-        height: "100vh",
-        overflow: "hidden",
-      });
+    // Handle display property
+    gsap.set([".menu--parent", ".menu--bg"], {
+      display: isOpen ? "flex" : "none",
+    });
 
-      // Animate in the menu
-      gsap.set([".menu--parent", ".menu--bg"], { display: "flex" });
-      gsap.to(".menu--parent", {
-        maxHeight: "1000px", // Adjust maxHeight accordingly
-        ease: "smooth",
-        duration: 0.5,
-      });
-      gsap.to(".menu--icon-close", {
-        opacity: 1,
-        x: "0rem",
-        ease: "smooth",
-        duration: 0.5,
-      });
-      gsap.to(".menu--icon", {
-        opacity: 0,
-        x: "20rem",
-        ease: "smooth",
-        duration: 0.5,
-      });
-    } else {
-      // Animate out the menu
-      gsap.to(".menu--parent", {
-        maxHeight: "0px", // Adjust maxHeight accordingly
-        ease: "smooth",
-        duration: 0.5,
-        onComplete: () => {
-          gsap.set([".menu--parent", ".menu--bg"], { display: "none" });
-          // Enable scrolling on the scroll container
-          gsap.set(".your-scroll-container", { clearProps: "height,overflow" });
-        },
-      });
-      gsap.to(".menu--icon-close", {
-        opacity: 0,
-        x: "20rem",
-        ease: "smooth",
-        duration: 0.5,
-      });
-      gsap.to(".menu--icon", {
-        opacity: 1,
-        x: "0rem",
-        ease: "smooth",
-        duration: 0.5,
-      });
-    }
+    // Animate menu parent height
+    gsap.to(".menu--parent", {
+      maxHeight: isOpen ? "1000px" : "0px", // Adjust maxHeight accordingly
+      ease: "smooth",
+      duration: 0.5,
+    });
+
+    // Animate menu icons
+    gsap.to(".menu--icon-close", {
+      opacity: isOpen ? 1 : 0,
+      x: isOpen ? "0rem" : "20rem",
+      ease: "smooth",
+      duration: 0.5,
+    });
+
+    gsap.to(".menu--icon", {
+      opacity: isOpen ? 0 : 1,
+      x: isOpen ? "20rem" : "0rem",
+      ease: "smooth",
+      duration: 0.5,
+    });
   });
 });
