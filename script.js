@@ -275,6 +275,13 @@ document.querySelectorAll(".menu--link").forEach((item) => {
 
     let isOpen = document.body.classList.contains("menu-open");
 
+    // Toggle no-scroll class on body
+    if (isOpen) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+
     // Handle display property
     gsap.set([".menu--parent", ".menu--bg"], {
       display: isOpen ? "flex" : "none",
@@ -282,7 +289,7 @@ document.querySelectorAll(".menu--link").forEach((item) => {
 
     // Animate menu parent height
     gsap.to(".menu--parent", {
-      maxHeight: isOpen ? "1000px" : "0px", // Adjust maxHeight to a large enough value
+      maxHeight: isOpen ? "500px" : "0px", // Adjust maxHeight accordingly
       ease: "smooth",
       duration: 0.5,
     });

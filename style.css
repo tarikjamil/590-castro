@@ -61,3 +61,12 @@
   opacity: 1;
   transform: translateX(0rem);
 }
+
+.no-scroll {
+  overflow-y: scroll; /* Keep the scrollbar */
+  position: fixed; /* Fix the position */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  top: 0; /* Align top */
+  left: 0; /* Align left */
+}
