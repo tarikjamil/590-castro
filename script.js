@@ -279,7 +279,7 @@ document.querySelectorAll(".menu--link").forEach((item) => {
 
     // Animate menu parent height
     gsap.to(".menu--parent", {
-      maxHeight: isOpen ? "600px" : "0px", // Adjust maxHeight accordingly
+      x: isOpen ? "0%" : "100%",
       ease: "smooth",
       duration: 0.5,
     });
