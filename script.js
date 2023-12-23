@@ -267,3 +267,36 @@ if (window.innerWidth > 992) {
 $(".menu--bg").on("click", function () {
   $(".menu--link").click();
 });
+
+document.querySelectorAll(".menu--link").forEach((item) => {
+  item.addEventListener("click", function () {
+    const isOpen = document.body.classList.toggle("menu-open");
+
+    // Handle display property
+    gsap.set([".menu--parent", ".menu--bg"], {
+      display: isOpen ? "flex" : "none",
+    });
+
+    // Animate menu parent height
+    gsap.to(".menu--parent", {
+      maxHeight: isOpen ? "600px" : "0px", // Adjust maxHeight accordingly
+      ease: "smooth",
+      duration: 0.5,
+    });
+
+    // Animate menu icons
+    gsap.to(".menu--icon-close", {
+      opacity: isOpen ? 1 : 0,
+      x: isOpen ? "0rem" : "20rem",
+      ease: "smooth",
+      duration: 0.5,
+    });
+
+    gsap.to(".menu--icon", {
+      opacity: isOpen ? 0 : 1,
+      x: isOpen ? "20rem" : "0rem",
+      ease: "smooth",
+      duration: 0.5,
+    });
+  });
+});
