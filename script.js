@@ -75,31 +75,28 @@ function pageLoad() {
   // Add a label to mark the starting point of simultaneous animations
   tl.add("loadingAnimationsStart");
 
-  // Add the 'loading' animation and set its position to the label
+  // Existing animations
   tl.from(
     ".loading-animation-split",
     {
       y: "100%",
-      opacity: "0",
-      stagger: { each: 0.2, from: "start" },
-      ease: "smooth",
-      duration: 1,
-    },
-    "loadingAnimationsStart"
-  );
-  tl.from(
-    "[animation=loading]",
-    {
-      y: "20rem",
       opacity: "0",
       stagger: { each: 0.1, from: "start" },
       ease: "smooth",
       duration: 0.6,
     },
     "loadingAnimationsStart"
-  ); // <-- position parameter set to the label
+  );
 
-  // Add the 'loading-reverse' animation and set its position to the label
+  // New animation for .loading-animation-split after 5 seconds
+  tl.to(".loading-animation-split", {
+    y: "-100%",
+    opacity: "0",
+    stagger: { each: 0.1, from: "start" },
+    ease: "smooth",
+    duration: 0.6,
+    delay: 5, // Delay of 5 seconds
+  });
 }
 
 pageLoad();
