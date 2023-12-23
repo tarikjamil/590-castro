@@ -271,14 +271,18 @@ $(".menu--bg").on("click", function () {
 document.querySelectorAll(".menu--link").forEach((item) => {
   item.addEventListener("click", function () {
     // Toggle class to know if the menu is open or not
-    document.body.classList.toggle("menu-open");
+    const isOpen = document.body.classList.toggle("menu-open");
 
-    let isOpen = document.body.classList.contains("menu-open");
-
-    // Toggle no-scroll class on body
     if (isOpen) {
+      // Save the current scroll position and apply a negative top margin
+      const scrollY = window.scrollY;
+      document.body.style.top = `-${scrollY}px`;
       document.body.classList.add("no-scroll");
     } else {
+      // Remove the no-scroll class and reset the scroll position
+      const scrollY = document.body.style.top;
+      document.body.style.top = "";
+      window.scrollTo(0, parseInt(scrollY || "0") * -1);
       document.body.classList.remove("no-scroll");
     }
 
@@ -289,7 +293,7 @@ document.querySelectorAll(".menu--link").forEach((item) => {
 
     // Animate menu parent height
     gsap.to(".menu--parent", {
-      maxHeight: isOpen ? "500px" : "0px", // Adjust maxHeight accordingly
+      maxHeight: isOpen ? "1000px" : "0px", // Adjust maxHeight accordingly
       ease: "smooth",
       duration: 0.5,
     });
