@@ -268,6 +268,10 @@ $(".menu--bg").on("click", function () {
   $(".menu--link").click();
 });
 
+$(".navlink").on("click", function () {
+  $(".menu--link").click();
+});
+
 document.querySelectorAll(".menu--link").forEach((item) => {
   item.addEventListener("click", function () {
     const isOpen = document.body.classList.toggle("menu-open");
