@@ -41,17 +41,27 @@ let smoother;
 function initializeScrollSmoother() {
   if (!smoother) {
     gsap.registerPlugin(ScrollSmoother);
+
+    // Check if the screen width is below 991px
+    const shouldEnableEffects = window.innerWidth >= 991;
+
     smoother = ScrollSmoother.create({
       smooth: 1,
-      effects: true,
+      effects: shouldEnableEffects, // Enable or disable based on screen width
     });
   }
 }
 
 function updateOnResize() {
-  // Check if smoother instance exists and then update it
-  if (smoother && smoother.update) {
-    smoother.update();
+  // Check if smoother instance exists
+  if (smoother) {
+    // Update the effects property based on the current window width
+    smoother.effects(window.innerWidth >= 991);
+
+    // Update the smoother instance
+    if (smoother.update) {
+      smoother.update();
+    }
   }
 }
 
