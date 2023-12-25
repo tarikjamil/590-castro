@@ -291,3 +291,7 @@ $(".menu--bg").on("click", function () {
 $(".navlink").on("click", function () {
   $(".menu--link").click();
 });
+
+$(".menu--close--icon").on("click", function () {
+  $(".menu--link").click();
+});
