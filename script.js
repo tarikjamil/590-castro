@@ -1,7 +1,8 @@
 function runSplit() {
   text = new SplitType("[animation=loading-split]", {
-    types: "lines",
+    types: "lines,chars",
     lineClass: "loading-animation-split",
+    charClass: "loading-animation-split-char",
   });
   textfade = new SplitType("[animation=split-fade]", {
     types: "lines",
@@ -97,24 +98,24 @@ function pageLoad() {
 
   // Existing animations
   tl.from(
-    ".loading-animation-split",
+    ".loading-animation-split-char",
     {
       y: "100%",
       opacity: "0",
-      stagger: { each: 0.1, from: "start" },
+      stagger: { each: 0.05, from: "start" },
       ease: "smooth",
-      duration: 0.6,
+      duration: 1,
     },
     "loadingAnimationsStart"
   );
 
   // New animation for .loading-animation-split after 5 seconds
-  tl.to(".loading-animation-split", {
+  tl.to(".loading-animation-split-char", {
     y: "-100%",
     opacity: "0",
-    stagger: { each: 0.1, from: "start" },
+    stagger: { each: 0.05, from: "start" },
     ease: "smooth",
-    duration: 0.6,
+    duration: 1,
     delay: 5, // Delay of 5 seconds
   });
 }
