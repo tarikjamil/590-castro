@@ -83,69 +83,20 @@ window.addEventListener("resize", debounce(updateOnResize, 250));
 
 CustomEase.create("smooth", "M0,0 C0.38,0.005 0.215,1 1,1");
 
-// ------------------ loading screen ------------------ //
+// On Page Load
+function pageLoad() {
+  let tl = gsap.timeline();
 
-document.addEventListener("DOMContentLoaded", function () {
-  const progressBar = document.querySelector(".loading--line");
-  let totalImages = document.images.length;
-  let imagesLoaded = 0;
+  tl.to(".main-wrapper", {
+    opacity: 1,
+    ease: "smooth",
+    duration: 0.6,
+  });
 
-  function updateProgress() {
-    let progress = (imagesLoaded / totalImages) * 100;
-    progressBar.style.width = `${progress}%`;
+  // Add a label to mark the starting point of simultaneous animations
+  tl.add("loadingAnimationsStart");
 
-    if (progress >= 100) {
-      // Call the animation function when progress bar hits 100%
-      onLoadingComplete();
-    }
-  }
-
-  function imageLoaded() {
-    imagesLoaded++;
-    updateProgress();
-  }
-
-  for (let img of document.images) {
-    img.removeAttribute("loading"); // Remove lazy loading
-
-    if (img.complete) {
-      imageLoaded();
-    } else {
-      img.addEventListener("load", imageLoaded);
-      img.addEventListener("error", imageLoaded);
-    }
-  }
-
-  // Rest of your code for reapplyLazyLoading and isInViewport
-  // ...
-});
-
-function onLoadingComplete() {
-  const tl = gsap.timeline();
-
-  // Animate individual elements with timeline
-  tl.to(".loading--logo", { delay: 1, y: "-20rem", opacity: 0, ease: "smooth" })
-    .to(
-      ".loading--line-parent",
-      { y: "-10rem", opacity: 0, ease: "smooth", duration: 0.5 },
-      "-=0.2"
-    )
-    .to(
-      ".loading--screen",
-      { scale: 0.6, ease: "smooth", duration: 0.5 },
-      "-=0.5"
-    )
-    .to(
-      ".loading--screen-container",
-      {
-        height: "0vh",
-        ease: "smooth",
-        duration: 0.5,
-        onComplete: hideLoadingScreen,
-      },
-      ">"
-    );
-
+  // Existing animations
   tl.from(
     ".loading-animation-split-char",
     {
@@ -155,29 +106,21 @@ function onLoadingComplete() {
       ease: "smooth",
       duration: 1,
     },
-    "+=0"
+    "loadingAnimationsStart"
   );
 
-  tl.from(
-    ".animation-heading-split",
-    {
-      y: "100%",
-      ease: "smooth",
-      duration: 0.6,
-      stagger: {
-        each: 0.1,
-      },
-    },
-    "-=0.5"
-  );
-  function hideLoadingScreen() {
-    gsap.to(".loading--screen", {
-      onComplete: () => {
-        document.querySelector(".loading--screen").style.display = "none";
-      },
-    });
-  }
+  // New animation for .loading-animation-split after 5 seconds
+  tl.to(".loading-animation-split-char", {
+    y: "-100%",
+    opacity: "0",
+    stagger: { each: 0.05, from: "start" },
+    ease: "smooth",
+    duration: 1,
+    delay: 5, // Delay of 5 seconds
+  });
 }
+
+pageLoad();
 
 // marquee is--scrolling
 const scrollSpeed = 50; // pixels per second, adjust as needed
