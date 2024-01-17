@@ -5,8 +5,9 @@ function runSplit() {
     charClass: "loading-animation-split-char",
   });
   textfade = new SplitType("[animation=split-fade]", {
-    types: "lines",
+    types: "lines,chars",
     lineClass: "animation-split-fade",
+    charClass: "animation-split-char",
   });
   texttestimonial = new SplitType(".is--testimonial", {
     types: "lines,chars",
@@ -198,27 +199,24 @@ updateScrollingSpeed();
 // Update on window resize
 window.addEventListener("resize", updateScrollingSpeed);
 
-gsap.utils.toArray("[animation=split-fade]").forEach((container) => {
-  const splitFadeElements = container.querySelectorAll(".animation-split-fade");
-
-  gsap.from(splitFadeElements, {
-    scrollTrigger: {
-      trigger: container,
-      start: "top bottom", // When the top of the container hits the bottom of the viewport
-      end: "bottom top", // When the bottom of the container leaves the top of the viewport
-      toggleActions: "play none none none", // Play the animation when the container enters the viewport
-      once: true, // Ensures the animation only triggers once
-    },
-    opacity: 0,
-    y: "100%", // translateY
-    duration: 0.6, // Duration of the animation
-    ease: "smooth",
-    delay: 0.3, // Custom easing function
-    stagger: {
-      amount: 0.1, // Total time for the stagger (in seconds)
-    },
+// -------------- scroll trigger -------------- //
+document
+  .querySelectorAll(".animation-split-fade")
+  .forEach(function (fadeSplitElem) {
+    gsap.from(fadeSplitElem.querySelectorAll(".animation-split-char"), {
+      scrollTrigger: {
+        trigger: fadeSplitElem,
+        start: "bottom bottom",
+        markers: false,
+      },
+      y: "-100%",
+      ease: "smooth",
+      duration: 0.6,
+      stagger: {
+        each: 0.05,
+      },
+    });
   });
-});
 
 //------------ scroll navbar ------------ //
 
