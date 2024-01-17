@@ -76,3 +76,7 @@
   z-index: 9999;
   transition: transform 1s ease;
 }
+
+.section.is--home-hero {
+  position: fixed;
+}
