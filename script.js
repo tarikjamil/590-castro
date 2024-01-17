@@ -209,7 +209,7 @@ document
         start: "bottom bottom",
         markers: false,
       },
-      y: "-100%",
+      y: "100%",
       ease: "smooth",
       duration: 0.6,
       stagger: {
