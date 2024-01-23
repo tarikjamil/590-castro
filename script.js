@@ -172,12 +172,12 @@ function onLoadingComplete() {
     "-=0.5"
   );
 
-  tl.to(".animation-heading-split", {
+  tl.to(".loading-animation-split-char", {
     y: "-100%",
     opacity: "0",
-    stagger: { each: 0.1, from: "start" },
+    stagger: { each: 0.05, from: "start" },
     ease: "smooth",
-    duration: 0.6,
+    duration: 1,
     delay: 5, // Delay of 5 seconds
   });
 
